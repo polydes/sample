@@ -1,4 +1,4 @@
-package com.polydes.example;
+package com.example;
 
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;

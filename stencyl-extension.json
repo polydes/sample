@@ -1,0 +1,21 @@
+{
+  "group": "com.polydes",
+  "id": "example",
+  "name": "Extension Name",
+  "description": "Extension Description.",
+  "tags": ["example"],
+  "type": "normal",
+  "author": "Author Name",
+  "website": "https://example.com/",
+  "repository": "https://www.example.com/repo",
+  "target": "stencyl-4.2.0",
+  "version": "1.0.0",
+
+  "icon": "icon.png",
+
+  "toolset": {
+    "root": "toolset",
+    "mainClass": "com.example.SampleExtension",
+    "internalVersion": "1"
+  }
+}

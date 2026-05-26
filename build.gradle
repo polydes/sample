@@ -1,54 +1,13 @@
 plugins {
-	id 'eclipse'
-	id 'java-library'
+    id("com.stencyl.gradle.extension") version "1.0.0"
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(16))
-    }
+stencyl {
+    fromJsonFile(file("stencyl-extension.json"))
 }
 
-group = 'com.polydes'
-version = '1.0.0'
-
-repositories {
-    mavenCentral()
-    maven {
-        url "https://www.stencyl.com/dl/maven2/releases"
-    }
-    maven {
-        url "https://www.stencyl.com/dl/maven2/snapshots"
-    }
-}
-
-def stencylVersion = '4.1.0-SNAPSHOT'
 dependencies {
-	implementation enforcedPlatform('com.stencyl:stencyl-platform:'+stencylVersion)
-    compileOnly group: 'com.stencyl', name: 'stencyl', version: stencylVersion
-}
-
-jar {
-	manifest {
-		attributes(
-			"Extension-ID": "com.polydes.example",
-			"Extension-Main-Class": "com.polydes.example.SampleExtension",
-			"Extension-Version": version,
-			"Extension-Icon": "res/com/polydes/example/icon.png",
-			"Extension-Dependencies": "stencyl-4.1.0",
-			"Extension-Type": "normal",
-			"Extension-Name": "Extension Name",
-			"Extension-Description": "Extension Description.",
-			"Extension-Author": "Author Name",
-			"Extension-Website": "http://example.com",
-//			"Extension-Repository": "http://www.polydes.com/repo",
-			"Extension-Internal-Version": "1"
-		)
-	}
-}
-
-tasks.register('installToWorkspace', Copy) {
-    from(tasks.named("jar"))
-	into stencylWorkspace+"/extensions"
-	rename { fileName -> "com.polydes.example.jar" }
+    //using jars that are included with Stencyl:
+    //compileOnly 'ch.qos.reload4j:reload4j'
+    //compileOnly 'commons-io:commons-io'
 }
