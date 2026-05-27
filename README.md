@@ -1,0 +1,2 @@
+> [!WARNING]
+> This repository is archived. This was a sample of using the ant-based polydes build tools for building a Stencyl extension, and later Gradle. A much better method is available as of Stencyl 4.2.0. See the official [toolset extension sample](https://github.com/Stencyl/toolset-extension-sample).
